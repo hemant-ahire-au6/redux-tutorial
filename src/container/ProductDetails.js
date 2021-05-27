@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { selectProducts } from '../redux/actions/productActions'
 import axios from "axios"
-import { getByTitle } from '@testing-library/dom'
+
 
 function ProductDetails() {
     const product = useSelector(state => state.product)
@@ -29,7 +29,7 @@ function ProductDetails() {
                 <div class="ui vertically divided grid">
                     <div class="two column row">
                         <div class="column">
-                            <img src={image} style={{ height: "500px" }} />
+                            <img src={image} style={{ height: "500px" }} alt=" " />
                         </div>
                         <div class="column">
                             <div style={{marginTop:"20px"}}>
