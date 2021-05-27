@@ -10,16 +10,20 @@ function ProductDetails() {
     const { title, price, description, image } = product
     const { productId } = useParams();
     const dispatch = useDispatch();
-    const fetchProductdetails = async () => {
-        const response = await axios.get(`https://fakestoreapi.com/products/${productId}`).catch(err => {
-            console.log(err)
-        })
-        console.log(response.data)
-        dispatch(selectProducts(response.data));
-    }
+   
 
     useEffect(() => {
-        if (productId && productId !== "") fetchProductdetails();
+        
+        const fetchProductdetails = async () => {
+            const response = await axios.get(`https://fakestoreapi.com/products/${productId}`).catch(err => {
+                console.log(err)
+            })
+            console.log(response.data)
+            dispatch(selectProducts(response.data));
+        }
+        if (productId && productId !== ""){
+            fetchProductdetails();
+        } 
 
     }, [productId])
 
